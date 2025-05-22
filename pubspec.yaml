@@ -1,5 +1,6 @@
 name: validators_and_input_formatters
-description: "A Custom Flutter package offering a collection of reusable input validators and input formatters. Includes utilities like name and password validators, confirm password checks, and formatters for lowercase input, decimal numbers, and credit card numbers."
+description: "A Flutter package with reusable validators and input formatters for names, passwords, emails, numbers, and credit card input.
+"
 version: 0.0.1
 homepage: https://manishtalreja.in/
 repository: https://github.com/manishtalreja0510/validators_and_input_formatters
