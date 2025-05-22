@@ -5,20 +5,22 @@ import 'package:validators_and_input_formatters/validators_and_input_formatters_
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  MethodChannelValidatorsAndInputFormatters platform = MethodChannelValidatorsAndInputFormatters();
-  const MethodChannel channel = MethodChannel('validators_and_input_formatters');
+  MethodChannelValidatorsAndInputFormatters platform =
+      MethodChannelValidatorsAndInputFormatters();
+  const MethodChannel channel = MethodChannel(
+    'validators_and_input_formatters',
+  );
 
   setUp(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(
-      channel,
-      (MethodCall methodCall) async {
-        return '42';
-      },
-    );
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+          return '42';
+        });
   });
 
   tearDown(() {
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null);
   });
 
   test('getPlatformVersion', () async {

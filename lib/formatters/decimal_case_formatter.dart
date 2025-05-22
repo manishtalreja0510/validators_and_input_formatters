@@ -1,4 +1,3 @@
-
 import 'package:flutter/services.dart';
 
 /// This will allow only numbers and decimals
@@ -10,16 +9,15 @@ class DecimalNumberInputFormatter extends TextInputFormatter {
   /// By Default it is 2.
   final int decimalRange;
 
-
   /// This is the constructor of the decimal number input formatter
   DecimalNumberInputFormatter({this.decimalRange = 2})
-      : assert(decimalRange >= 0);
+    : assert(decimalRange >= 0);
 
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     final text = newValue.text;
 
     if (text.isEmpty) return newValue;
@@ -33,4 +31,3 @@ class DecimalNumberInputFormatter extends TextInputFormatter {
     return oldValue;
   }
 }
-

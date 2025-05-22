@@ -1,8 +1,5 @@
-
-
 /// This will be the validators that you can add in your text form field to have a proper form field validation.
 class CustomValidators {
-
   /// Validates a text field as required.
   ///
   /// This function ensures that the field is not left empty
@@ -22,7 +19,6 @@ class CustomValidators {
       return null;
     }
   }
-
 
   /// Validates a text field as mobile number.
   ///
@@ -48,8 +44,6 @@ class CustomValidators {
     // return null;
   }
 
-
-
   /// Validates a password.
   ///
   /// This function ensures that the field is valid password
@@ -63,10 +57,10 @@ class CustomValidators {
   ///
   /// - [val] is the value of the text field.
   /// /// - [length] is the min length of the characters. By default it is set to 6.
-  static passwordValidation(String? val, {int? length=6}) {
+  static passwordValidation(String? val, {int? length = 6}) {
     if (val.toString().trim().isEmpty) {
       return "Required*";
-    } else if (val.toString().trim().length < (length??6)) {
+    } else if (val.toString().trim().length < (length ?? 6)) {
       return "Enter at least $length character password";
     } else {
       return null;
@@ -86,7 +80,7 @@ class CustomValidators {
   ///
   /// - [val] is the value of the text field.
   /// - [length] is the max length of the characters. By default it is set to 4.
-  static pinValidation(String? val, {int length =4}) {
+  static pinValidation(String? val, {int length = 4}) {
     if (val.toString().trim().isEmpty) {
       return "Required*";
     } else if (val.toString().trim().length < (length)) {
@@ -95,9 +89,6 @@ class CustomValidators {
       return null;
     }
   }
-
-
-
 
   /// Validates that the confirm password matches the original password.
   ///
@@ -116,7 +107,9 @@ class CustomValidators {
   /// - [val] is the value of the confirm password field.
   /// - [passwordController.text] is the original password value.
   static confirmPasswordValidation(
-      String? confirmNewPassword, String password) {
+    String? confirmNewPassword,
+    String password,
+  ) {
     if (confirmNewPassword == null || confirmNewPassword.trim().isEmpty) {
       return "Required*";
     } else if (confirmNewPassword.trim().length < 6) {
@@ -128,7 +121,6 @@ class CustomValidators {
     }
     // return null;
   }
-
 
   /// Validates a full name input to ensure it contains valid characters and format.
   ///
@@ -145,8 +137,9 @@ class CustomValidators {
   /// - [val] is the value of the text field.
 
   static nameValidation(String val) {
-    RegExp nameRegex =
-        RegExp(r"^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$");
+    RegExp nameRegex = RegExp(
+      r"^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$",
+    );
     if (val.trim().isEmpty) {
       return "Required*";
     } else if (!nameRegex.hasMatch(val.trim())) {
@@ -155,7 +148,6 @@ class CustomValidators {
       return null;
     }
   }
-
 
   /// Validates a email.
   ///
@@ -171,7 +163,8 @@ class CustomValidators {
 
   static emailValidation(val) {
     RegExp emailAddress = RegExp(
-        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+    );
     if (val.toString().trim().isEmpty) {
       return "Please enter your email id*";
     } else if (!emailAddress.hasMatch(val.toString().trim())) {
@@ -180,8 +173,6 @@ class CustomValidators {
       return null;
     }
   }
-
-
 
   /// Validates a number.
   ///
@@ -198,7 +189,11 @@ class CustomValidators {
   /// - [val] is the value of the text field.
   /// - [maximumNumber] (Optional) is the max range of the text field.
   /// - [minimumNumber] (Optional) is the min range of the text field.
-  static requiredNumberValidation(val, {double? maximumNumber, double? minimumNumber}) {
+  static requiredNumberValidation(
+    val, {
+    double? maximumNumber,
+    double? minimumNumber,
+  }) {
     RegExp numberValidation = RegExp(r'^-?\d+$');
     if (val.toString().trim().isEmpty) {
       return "Required Field*";
@@ -206,27 +201,27 @@ class CustomValidators {
       return "This number should be an integer";
     }
 
-    if(maximumNumber!=null){
-      try{
+    if (maximumNumber != null) {
+      try {
         double number = double.parse(val);
-        if(number>maximumNumber){
+        if (number > maximumNumber) {
           return "The number cannot be more than ${maximumNumber.toStringAsFixed(0)}";
         }
-      }catch(e){
+      } catch (e) {
         return 'Invalid Number';
       }
     }
-    if(minimumNumber!=null){
-      try{
+    if (minimumNumber != null) {
+      try {
         // double number = double.parse(val);
-        if(val<minimumNumber){
+        if (val < minimumNumber) {
           return "The number cannot be less than ${minimumNumber.toStringAsFixed(0)}";
         }
-      }catch(e){
+      } catch (e) {
         return 'Invalid Number';
       }
     }
 
-      return null;
+    return null;
   }
 }

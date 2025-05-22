@@ -2,7 +2,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'validators_and_input_formatters_method_channel.dart';
 
-
 /// ValidatorsAndInputFormattersPlatform
 abstract class ValidatorsAndInputFormattersPlatform extends PlatformInterface {
   /// Constructs a ValidatorsAndInputFormattersPlatform.
@@ -10,7 +9,8 @@ abstract class ValidatorsAndInputFormattersPlatform extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static ValidatorsAndInputFormattersPlatform _instance = MethodChannelValidatorsAndInputFormatters();
+  static ValidatorsAndInputFormattersPlatform _instance =
+      MethodChannelValidatorsAndInputFormatters();
 
   /// The default instance of [ValidatorsAndInputFormattersPlatform] to use.
   ///
@@ -24,7 +24,6 @@ abstract class ValidatorsAndInputFormattersPlatform extends PlatformInterface {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
   }
-
 
   /// this function can be used to get the platform version, if called then it will throw an error, so do not use it
   Future<String?> getPlatformVersion() {

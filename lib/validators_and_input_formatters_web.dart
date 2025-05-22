@@ -9,13 +9,15 @@ import 'package:web/web.dart' as web;
 import 'validators_and_input_formatters_platform_interface.dart';
 
 /// A web implementation of the ValidatorsAndInputFormattersPlatform of the ValidatorsAndInputFormatters plugin.
-class ValidatorsAndInputFormattersWeb extends ValidatorsAndInputFormattersPlatform {
+class ValidatorsAndInputFormattersWeb
+    extends ValidatorsAndInputFormattersPlatform {
   /// Constructs a ValidatorsAndInputFormattersWeb
   ValidatorsAndInputFormattersWeb();
 
   /// this function can be used to register with
   static void registerWith(Registrar registrar) {
-    ValidatorsAndInputFormattersPlatform.instance = ValidatorsAndInputFormattersWeb();
+    ValidatorsAndInputFormattersPlatform.instance =
+        ValidatorsAndInputFormattersWeb();
   }
 
   /// Returns a [String] containing the version of the platform.

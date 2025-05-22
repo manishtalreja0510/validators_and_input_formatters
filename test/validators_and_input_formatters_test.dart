@@ -7,21 +7,29 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockValidatorsAndInputFormattersPlatform
     with MockPlatformInterfaceMixin
     implements ValidatorsAndInputFormattersPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 }
 
 void main() {
-  final ValidatorsAndInputFormattersPlatform initialPlatform = ValidatorsAndInputFormattersPlatform.instance;
+  final ValidatorsAndInputFormattersPlatform initialPlatform =
+      ValidatorsAndInputFormattersPlatform.instance;
 
-  test('$MethodChannelValidatorsAndInputFormatters is the default instance', () {
-    expect(initialPlatform, isInstanceOf<MethodChannelValidatorsAndInputFormatters>());
-  });
+  test(
+    '$MethodChannelValidatorsAndInputFormatters is the default instance',
+    () {
+      expect(
+        initialPlatform,
+        isInstanceOf<MethodChannelValidatorsAndInputFormatters>(),
+      );
+    },
+  );
 
   test('getPlatformVersion', () async {
-    ValidatorsAndInputFormatters validatorsAndInputFormattersPlugin = ValidatorsAndInputFormatters();
-    MockValidatorsAndInputFormattersPlatform fakePlatform = MockValidatorsAndInputFormattersPlatform();
+    ValidatorsAndInputFormatters validatorsAndInputFormattersPlugin =
+        ValidatorsAndInputFormatters();
+    MockValidatorsAndInputFormattersPlatform fakePlatform =
+        MockValidatorsAndInputFormattersPlatform();
     ValidatorsAndInputFormattersPlatform.instance = fakePlatform;
 
     expect(await validatorsAndInputFormattersPlugin.getPlatformVersion(), '42');

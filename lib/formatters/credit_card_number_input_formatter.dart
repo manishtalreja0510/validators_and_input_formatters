@@ -11,9 +11,9 @@ class CreditCardNumberInputFormatter extends TextInputFormatter {
 
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue,
-      TextEditingValue newValue,
-      ) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     // Remove all non-digit characters
     String digits = newValue.text.replaceAll(RegExp(r'\D'), '');
 
@@ -37,5 +37,3 @@ class CreditCardNumberInputFormatter extends TextInputFormatter {
     );
   }
 }
-
-
